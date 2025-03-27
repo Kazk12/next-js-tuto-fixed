@@ -64,10 +64,8 @@ export async function createInvoice(prevState: State, formData: FormData) {
       VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
     `;
   } catch (error) {
-    // If a database error occurs, return a more specific error.
-    return {
-      message: 'Database Error: Failed to Create Invoice.',
-    };
+    console.error('Error:', error); // Ajoutez cette ligne pour utiliser error
+    return { message: 'Database Error: Failed to Create Invoice.' };
   }
  
   // Revalidate the cache for the invoices page and redirect the user.
@@ -77,7 +75,7 @@ export async function createInvoice(prevState: State, formData: FormData) {
 
 
   // Use Zod to update the expected types
-const UpdateInvoice = FormSchema.omit({ id: true, date: true });
+// const UpdateInvoice = FormSchema.omit({ id: true, date: true });
  
 // ...
  
@@ -107,8 +105,9 @@ export async function updateInvoice(id: string, prevState: State, formData: Form
       SET customer_id = ${customerId}, amount = ${amountInCents}, status = ${status}
       WHERE id = ${id}
     `;
-  } catch (error) {
-    return { message: 'Database Error: Failed to Update Invoice.' };
+  }  catch (error) {
+    console.error('Error:', error); // Ajoutez cette ligne pour utiliser error
+    return { message: 'Database Error: Failed to Create Invoice.' };
   }
  
   revalidatePath('/dashboard/invoices');
