@@ -228,3 +228,30 @@ export function CustomersTableSkeleton() {
     </div>
   );
 }
+
+// Ajouter ces squelettes à votre fichier existant
+
+export function ChartSkeleton() {
+  return (
+    <div className="h-96 w-full rounded-lg bg-gray-100 animate-pulse" />
+  );
+}
+
+export function StatsSkeleton() {
+  return (
+    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {[...Array(4)].map((_, i) => (
+        <div key={i} className="h-32 rounded-lg bg-gray-100 animate-pulse" />
+      ))}
+    </div>
+  );
+}
+
+export function TableSkeleton() {
+  return (
+    <div className="space-y-4">
+      <div className="h-10 w-full rounded-lg bg-gray-100 animate-pulse" />
+      <div className="h-[420px] w-full rounded-lg bg-gray-100 animate-pulse" />
+    </div>
+  );
+}
