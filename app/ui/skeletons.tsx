@@ -216,3 +216,15 @@ export function InvoicesTableSkeleton() {
     </div>
   );
 }
+
+// Ajouter ceci dans app/ui/skeletons.tsx si ce n'est pas déjà fait
+export function CustomersTableSkeleton() {
+  return (
+    <div className="mt-6 w-full">
+      <div className="space-y-4">
+        <div className="h-8 w-full rounded-md bg-gray-100" />
+        <div className="h-[304px] w-full rounded-md bg-gray-100" />
+      </div>
+    </div>
+  );
+}
